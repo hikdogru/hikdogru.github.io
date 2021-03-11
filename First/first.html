@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Vue Project</title>
+    <script src="/js/vue.js"></script>
+</head>
+
+<body>
+    <div id="messageHello">
+        <p>Hello <h1>{{message}}</h1>
+        </p>
+        <h3>Firstname:{{firstname}} </h3>
+        <h3>Lastname:{{lastname}} </h3>
+        <h3>Age:{{age}} </h3>
+        <p>{{MyDetails()}} </p>
+    </div>
+
+    <script>
+        var vue = new Vue({
+            el: '#messageHello',
+            data: {
+                message: 'Vue Js',
+                firstname: prompt('Firstname:'),
+                lastname: prompt('Lastname'),
+                age: prompt('Age')
+            },
+            methods: {
+                MyDetails: function () {
+                    return "I am " + this.firstname + " " +
+                        this.lastname + " " +
+                        "and I am " + this.age + " years old."
+                }
+            }
+        });
+        var _obj = {
+            fname: "Jack",
+            lname: "Dorsey"
+        }
+        var vm = new Vue({
+            data: _obj
+        });
+        console.log(vm.fname);
+        console.log(vm.$data);
+        console.log(vm.$data.fname);
+    </script>
+</body>
+
+</html>
